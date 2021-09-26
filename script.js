@@ -1,22 +1,7 @@
-/*GIVEN I need a new, secure password
-WHEN I click the button to generate a password - done
-THEN I am presented with a series of prompts for password criteria- done
-WHEN prompted for password criteria - sort of done
-THEN I select which criteria to include in the password -sort of done
-WHEN prompted for the length of the password -done
-THEN I choose a length of at least 8 characters and no more than 128 characters - done
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters -done 
-WHEN I answer each prompt -done
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page*/
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-
+//global variables
 var pwd =[];
 
 var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 'x', 't', 'u', 'v','w', 'x', 'y', 'z'];
@@ -37,17 +22,18 @@ var number = [0,1,2,3,4,5,6,7,8,9];
 function writePassword() {
     var passwordText = document.querySelector("#password");
 
-
+    //ask user to choose password length and if they cancel
     var length= prompt('Choose a length of at least 8 characters and no more than 128 characters');
     console.log('This is the user ', length)
     if (!length){
         return;
     }
+    // password length must be between 8-128
     if(length < 8 || length  > 128){
-        alert("You must enter a length 8 - 128");
+        alert('You must enter a length 8 - 128');
         return;
     }
-
+//user confirms what characters will be included in password 
     var userChoiceUpper = confirm('Would you like upper case letters? Yes or No');
     console.log('This is the user ', userChoiceUpper);
       if(userChoiceUpper){
@@ -69,21 +55,21 @@ function writePassword() {
     console.log('This is the user ', userChoiceSymb);
       if(userChoiceSymb) {
           pwd = pwd.concat(symb);
-      } else if (!userChoiceUpper && !userChoiceLower && !userChoiceNumeric && !userChoiceSymb) {
-          pwd = "Abracadabra!".split('');
+      } else if (!upperCase && !lowerCase && !number && !symb) {
+          pwd = 'Abracadabra!'.split('');
        
 
       }
+      //stores generated password
       var finalPassword = [];
 
       for(var i = 0; i < length; i++) {
-          var generated= Math.floor(Math.random()* pwd.length);
           finalPassword.push(pwd[generated]);
     
       }
-
+      //alerts that password has been generated
       alert('See your password below');
-       passwordText.value = finalPassword.join("");
+       passwordText.value = finalPassword.join('');
 };
 
 
