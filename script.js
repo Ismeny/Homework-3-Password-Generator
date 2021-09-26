@@ -83,8 +83,7 @@ function writePassword() {
       }
 
       alert('See your password below');
-       passwordText.value = password;    
-      
+       passwordText.value = finalPassword.join("");
 };
 
 
