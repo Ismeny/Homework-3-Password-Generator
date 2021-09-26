@@ -17,18 +17,18 @@ THEN the password is either displayed in an alert or written to the page*/
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var pwd =[];
+var pwd ='';
 
-var allLower = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+var allLower = 'abcdefghijklmnopqrxtuvwxyz';
 console.log(allLower);
 
-var allUpper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+var allUpper = allLower.toUpperCase();
 console.log(allUpper);
 
-var allSpecialCharacters = ['!', '@', '#', '%', '$'];
+var allSpecialCharacters = '!@#$%^&*()_+=-';
 console.log(allSpecialCharacters);
 
-var allNumeric = [0,1,2,3,4,5,6,7,8,9];
+var allNumeric = '123456789';
 console.log(allNumeric);
 
 
@@ -75,7 +75,7 @@ function writePassword() {
        
 
       }
-      var finalPassword = [];
+      var finalPassword = '';
 
       for(var i = 0; i < length; i++) {
           var generated= Math.floor(Math.random()* pwd.length);
