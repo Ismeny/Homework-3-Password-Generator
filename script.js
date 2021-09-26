@@ -17,19 +17,19 @@ THEN the password is either displayed in an alert or written to the page*/
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var pwd ='';
+var pwd =[];
 
-var allLower = 'abcdefghijklmnopqrxtuvwxyz';
-console.log(allLower);
+var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 'x', 't', 'u', 'v','w', 'x', 'y', 'z'];
 
-var allUpper = allLower.toUpperCase();
-console.log(allUpper);
 
-var allSpecialCharacters = '!@#$%^&*()_+=-';
-console.log(allSpecialCharacters);
+var upperCase = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
 
-var allNumeric = '123456789';
-console.log(allNumeric);
+
+var symb = ['!', '@', '#', '%', '$'];
+
+
+var number = [0,1,2,3,4,5,6,7,8,9];
+
 
 
 
@@ -37,14 +37,13 @@ console.log(allNumeric);
 function writePassword() {
     var passwordText = document.querySelector("#password");
 
-    passwordText.value = password;
 
-    var userChoiceLength= prompt('Choose a length of at least 8 characters and no more than 128 characters');
-    console.log('This is the user ', userChoiceLength)
-    if (!userChoiceLength){
+    var length= prompt('Choose a length of at least 8 characters and no more than 128 characters');
+    console.log('This is the user ', length)
+    if (!length){
         return;
     }
-    if(userChoiceLength < 8 || userChoiceLength  > 128){
+    if(length < 8 || length  > 128){
         alert("You must enter a length 8 - 128");
         return;
     }
@@ -52,30 +51,30 @@ function writePassword() {
     var userChoiceUpper = confirm('Would you like upper case letters? Yes or No');
     console.log('This is the user ', userChoiceUpper);
       if(userChoiceUpper){
-       pwd = pwd.concat(userChoiceUpper);
+       pwd = pwd.concat(upperCase);
 
       }
     var userChoiceLower = confirm('Would you like lower case letters? Yes or No ');
     console.log('This is the user ', userChoiceLower);
       if(userChoiceLower){
-          pwd = pwd.concat(userChoiceLower);
+          pwd = pwd.concat(lowerCase);
 
       }
     var userChoiceNumeric = confirm('Would you like any numbers? Yes or No ');
     console.log('This is the user ', userChoiceNumeric);
       if(userChoiceNumeric) {
-          pwd = pwd.concat(userChoiceNumeric);
+          pwd = pwd.concat(number);
       }
-    var userChoiceSpecialCharacters = confirm('Would you like any special characters? Yes or No ');
-    console.log('This is the user ', userChoiceSpecialCharacters);
-      if(userChoiceSpecialCharacters) {
-          pwd = pwd.concat(userChoiceSpecialCharacters);
-      } else if (!userChoiceUpper && !userChoiceLower && !userChoiceNumeric && !userChoiceSpecialCharacters) {
+    var userChoiceSymb = confirm('Would you like any special characters? Yes or No ');
+    console.log('This is the user ', userChoiceSymb);
+      if(userChoiceSymb) {
+          pwd = pwd.concat(symb);
+      } else if (!userChoiceUpper && !userChoiceLower && !userChoiceNumeric && !userChoiceSymb) {
           pwd = "Abracadabra!".split('');
        
 
       }
-      var finalPassword = '';
+      var finalPassword = [];
 
       for(var i = 0; i < length; i++) {
           var generated= Math.floor(Math.random()* pwd.length);
@@ -84,7 +83,7 @@ function writePassword() {
       }
 
       alert('See your password below');
-      return finalPassword.join('');    
+       passwordText.value = password;    
       
 };
 
