@@ -1,4 +1,4 @@
-# Homework-3-Password-Generator
+# Password-Generator
 
 ## Description
 This projects has a series of prompts and alerts which the user interacts with in order to generate a random password that appears on the page.
@@ -13,7 +13,7 @@ This projects has a series of prompts and alerts which the user interacts with i
 * Test
 
 ## Installation
-Go to URL : ***https://ismeny.github.io/Homework-3-Password-Generator/***
+Go to URL : ***https://ismeny.github.io/Password-Generator/***
 
 ![Screenshot](password.png)
 
